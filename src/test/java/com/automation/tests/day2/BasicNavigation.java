@@ -47,6 +47,7 @@ public class BasicNavigation {
         driver.navigate().to("http://amazon.com");
         Thread.sleep(3000);
         if(driver.getTitle().toLowerCase().contains("amazon")){
+            // get tittle is getting tittle of webpage
             System.out.println("TEST PASSED");
         } else {
             System.out.println("TEST FAILED");
@@ -64,8 +65,17 @@ public class BasicNavigation {
         System.out.println(driver.getTitle());
         // this means it goes back to amazon
 
+        System.out.println("URL" + driver.getCurrentUrl());
+        // it returns string version of url
+        // this one display  the url of webpage
+        // shouldnt be mixed with getTittle...
 
-        System.out.println(driver.getTitle());
+        driver.navigate().refresh();
+        // to reload page
+        // it just refreshing the page.
+        Thread.sleep(3000);
+
+        //DIFFERERNT BETWEEN QUIT AND CLOSE ?
 
         driver.close();
         // to close to browser
