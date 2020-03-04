@@ -2,6 +2,7 @@ package com.automation.tests.day2;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 import java.util.Set;
@@ -29,6 +30,7 @@ public class JumpToTheNewWindow {
         // returns id's of all currently opened windows
         // since i only have one it returns one window id
         // set doesnt allow duplicate.
+
         System.out.println(windowHandles);
         System.out.println("Before switch : " +driver.getCurrentUrl());
 
@@ -44,6 +46,10 @@ public class JumpToTheNewWindow {
         System.out.println("After switch : " +driver.getCurrentUrl());
 
         driver.close();
+
+
+                // selenium consider everyting in page is as a element
+        // find element
 
 
     }
