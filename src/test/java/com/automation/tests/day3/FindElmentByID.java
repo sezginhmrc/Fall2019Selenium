@@ -50,18 +50,25 @@ public class FindElmentByID {
 
         String href = logout.getAttribute("href");
         String className = logout.getAttribute("class");
-
-
         System.out.println(href);
         System.out.println(className);
-
-
         logout.click();
+        Thread.sleep(2000);
+        // Let's do negative testing
+        // put invalid essentiaals
 
+        driver.findElement(By.name("username")).sendKeys("wrong input");
+        driver.findElement(By.name("password")).sendKeys("wrong input");
+        driver.findElement(By.id("wooden_spoon")).click();
 
 
 
         Thread.sleep(3000);
+
+        WebElement errorMessage = driver.findElement(By.id("flash-messages"));
+        System.out.println("errorMessage.getText() = " + errorMessage.getText());
+
+        Thread.sleep(2000);
         driver.quit();
     }
 }
