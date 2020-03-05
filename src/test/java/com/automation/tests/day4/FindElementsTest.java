@@ -41,7 +41,7 @@ public class FindElementsTest {
         }
 
          // selenium is autmation toool .
-
+        // selenium is makes testers life easier
         driver.quit();
 
 
