@@ -66,9 +66,26 @@ public class FindElmentByID {
         Thread.sleep(3000);
 
         WebElement errorMessage = driver.findElement(By.id("flash-messages"));
+        // this is By_id locator/
+        // be careful while finding elements by their name
+        // you might get an No such element exception
+
         System.out.println("errorMessage.getText() = " + errorMessage.getText());
 
         Thread.sleep(2000);
         driver.quit();
     }
 }
+// SUMMARAY OF TODAY CLASS
+/* Webelement is any Html element on the page for Selenium
+* name, tagName, linkText,
+*Locators -> the best locator is and ID.
+*sendKeys("text) is used to enter the text
+* getText() is used to read the text
+* getAttribute("attribute_name") is used to read some attribute
+* What if your locator is wrong ???
+* you will get nosuchElement exception
+* submit() is used for buttons that hava a type ="submit"
+* it used for alternative of click() method
+* if click() method does not work we can use submit()
+* */
