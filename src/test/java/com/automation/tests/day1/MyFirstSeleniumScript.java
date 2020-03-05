@@ -15,6 +15,7 @@ public class MyFirstSeleniumScript
         ChromeDriver driver = new ChromeDriver();
 
         driver.get("http://google.com");
+        // copy the ur l
 
 
     }
