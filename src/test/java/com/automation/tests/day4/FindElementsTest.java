@@ -40,7 +40,7 @@ public class FindElementsTest {
             links = driver.findElements(By.tagName("a"));
         }
 
-
+         // selenium is autmation toool .
 
         driver.quit();
 
