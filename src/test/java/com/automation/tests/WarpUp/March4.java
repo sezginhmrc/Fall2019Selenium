@@ -16,8 +16,9 @@ public class March4 {
     public static void main(String[] args) throws Exception {
     // ebayTest();
    //amazonTest();
-        wikiTest();
+       // wikiTest();
 
+        amazonTest();
     }
 
 
