@@ -7,6 +7,7 @@ import org.openqa.selenium.remote.RemoteWebDriver;
 
 public class BasicNavigation {
 
+
     public static void main(String[] args) throws Exception {
 
         // main method is trigger in any  java program

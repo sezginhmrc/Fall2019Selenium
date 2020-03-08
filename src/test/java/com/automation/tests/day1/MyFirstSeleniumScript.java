@@ -11,15 +11,17 @@ public class MyFirstSeleniumScript
 
         // to run tests on the Chrome
 
-        WebDriverManager.chromedriver().setup();
+        WebDriverManager.firefoxdriver().setup();
 
         // We need to create Chrome Object using ChromeDriver
-        ChromeDriver driver = new ChromeDriver();
+        FirefoxDriver driver = new FirefoxDriver();
 
         driver.get("http://google.com");
         // copy the url
         // created driver chrome object
         // every webbrowser has its own driver
+
+
 
     }
 }

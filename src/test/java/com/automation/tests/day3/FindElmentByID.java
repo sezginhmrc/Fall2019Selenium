@@ -20,6 +20,7 @@ public class FindElmentByID {
         WebDriver driver = new ChromeDriver();
         driver.get("http://practice.cybertekschool.com/login");
 
+
         driver.findElement(By.name("username")).sendKeys("tomsmith");
         Thread.sleep(3000);
 
@@ -46,10 +47,13 @@ public class FindElmentByID {
         // just se partialLinkText instead of LinkTest
         // liktext basically -> equals()
         // partialLinkText is contains() not complete match
+
         WebElement logout = driver.findElement(By.linkText("Logout"));
 
         String href = logout.getAttribute("href");
+
         String className = logout.getAttribute("class");
+
         System.out.println(href);
         System.out.println(className);
         logout.click();

@@ -16,7 +16,8 @@ public class FindElementPractice
         //WebDriverManager.chromedriver().setup();
         //WebDriver driver = new ChromeDriver();
 
-        // this is new aprroach
+        // THIS IS NEW APPROACH
+        // one line of code instead of 2
         WebDriver driver = DriverFactory.createADriver("chrome");
         driver.get("http://practice.cybertekschool.com/sign_up");
 
@@ -31,6 +32,7 @@ public class FindElementPractice
 
         WebElement signUp = driver.findElement(By.name("wooden_spoon"));
         signUp.click();
+
         // when you see type="submit" you can see submit() instead of click()
 
 
