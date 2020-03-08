@@ -19,7 +19,7 @@ public class MyFirstSeleniumScript
         driver.get("http://google.com");
         // copy the url
         // created driver chrome object
-
+        // every webbrowser has its own driver
 
     }
 }
