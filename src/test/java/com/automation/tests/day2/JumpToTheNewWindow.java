@@ -9,6 +9,7 @@ import java.util.Set;
 
 public class JumpToTheNewWindow {
 
+
     public static void main(String[] args) throws Exception {
 
         WebDriverManager.chromedriver().setup();
@@ -27,34 +28,39 @@ public class JumpToTheNewWindow {
         // result is window Id it represent particular window
 
         Set <String> windowHandles = driver.getWindowHandles();
+        // THIS IS HOW WE GET ALL ID
         // returns id's of all currently opened windows
-        // since i only have one it returns one window id
         // set doesnt allow duplicate.
-
         System.out.println(windowHandles);
-        System.out.println("Before switch : " +driver.getCurrentUrl());
+        // // IT WILL PRINT ALL  IDS CURRENTLY OPENED WIDOWS
 
+
+        System.out.println("Before switch : " +driver.getCurrentUrl());
         // since we have all windows and
         // we know id of original window
         // we can say to somethings that is not equals to old
 
+        // how to
         for (String windowId : windowHandles){
+            // if it is not an old window then swicth
             if(!windowId.equals(windowHandle)){
+                // this method to jump tp new window
                 driver.switchTo().window(windowId);
+                // we switched to windows
             }
         }
         System.out.println("After switch : " +driver.getCurrentUrl());
 
-        driver.close();
+        driver.quit();
 
+        switchToWindowBasedOnTittle("practice",driver);
 
                 // selenium consider everyting in page is as a element
-        // find element
+                // find element by locators.
 
 
     }
     // this method helps to switch in between windows based on page tittle
-
     public static  void switchToWindowBasedOnTittle(String pageTittle, WebDriver driver){
         Set<String> windows = driver.getWindowHandles();
         for(String window : windows){
@@ -65,3 +71,7 @@ public class JumpToTheNewWindow {
         }
     }
 }
+// SUMMARRY
+// LEARNED HOW TO SWITCH BETWEEN WINDOWS (while you have more than one window with one url)
+// CREATED LOGIC (METHOD)  if first window ids not equal other one id’s (always unique ids)
+// Driver.switchto.window(windowed)

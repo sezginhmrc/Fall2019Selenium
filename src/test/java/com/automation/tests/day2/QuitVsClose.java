@@ -17,10 +17,10 @@ public class QuitVsClose {
 
         Thread.sleep(4000);
 
-     //  driver.close();
+    //   driver.close();
        // it will close the current browser one window
 
-    //        driver.quit();
+            driver.quit();
         // will quit browser whole browser
 
     }

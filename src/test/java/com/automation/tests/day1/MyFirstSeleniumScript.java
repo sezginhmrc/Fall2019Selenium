@@ -8,10 +8,12 @@ import org.openqa.selenium.safari.SafariDriver;
 public class MyFirstSeleniumScript
 {
     public static void main(String[] args) {
-       // setup chromeDriver
-        WebDriverManager.chromedriver().setup();
-        //create chromeDriver object
 
+        // to run tests on the Chrome
+
+        WebDriverManager.chromedriver().setup();
+
+        // We need to create Chrome Object using ChromeDriver
         ChromeDriver driver = new ChromeDriver();
 
         driver.get("http://google.com");
