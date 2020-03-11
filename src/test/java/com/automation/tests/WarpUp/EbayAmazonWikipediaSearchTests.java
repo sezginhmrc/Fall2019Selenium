@@ -1,5 +1,6 @@
 package com.automation.tests.WarpUp;
 
+import com.automation.utilities.BrowserUtilites;
 import com.automation.utilities.DriverFactory;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.By;
@@ -8,21 +9,23 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
-public class March4 {
+public class EbayAmazonWikipediaSearchTests {
 
    static WebDriver driver;
 
 
     public static void main(String[] args) throws Exception {
-    // ebayTest();
-   //amazonTest();
-       // wikiTest();
 
-        amazonTest();
+   //  ebayTest();
+   //amazonTest();
+        wikiTest();
+
+
     }
 
 
     public static void ebayTest() throws Exception{
+
         WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();
         driver.get("https://www.ebay.com/");
@@ -32,7 +35,13 @@ public class March4 {
         driver.findElement(By.id("gh-btn")).click();
 
         String result = driver.findElement(By.tagName("h1")).getText();
+        WebElement saerchresults = driver.findElement(By.tagName("h1"));
         System.out.println(result);
+        System.out.println(saerchresults.getText().split(" ")[0]);
+        // splitted by space and get the first text
+
+
+        BrowserUtilites.wait(2);
         driver.quit();
 
     }
@@ -51,6 +60,8 @@ public class March4 {
         } else {
             System.out.println("TEST FAILED");
         }
+
+        BrowserUtilites.wait(4);
         driver.quit();
 
 
@@ -71,13 +82,20 @@ public class March4 {
         } else {
             System.out.println("TEST FAILED");
         }
+
+        driver.quit();
     }
 
+
     // selenium bigget problem is synchronoziont
-    // selenium is not waiting
+    // selenium never wait
+    // sometimes element can be delayed
+    // you can get error.
+
     // some elements may delay because of internet
     // Thread.sleep purpose stopping exexustion
     // Expiclity wait implicity wait
+
 
 
 
