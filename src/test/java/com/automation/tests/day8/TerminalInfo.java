@@ -10,4 +10,7 @@ public class TerminalInfo {
     // mkdir foldername - make directory
     // mkdir folderName -make directory
     // mkdir git you will create a git folder
+    // git clone http of git goes here
+    // you go to 'Version Control' in idea and go to 'Log' on top
+
 }
