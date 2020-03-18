@@ -1,6 +1,6 @@
 package com.automation.tests.day8;
 
-import com.automation.utilities.BrowserUtilites;
+import com.automation.utilities.BrowserUtils;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
@@ -13,7 +13,6 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-import java.security.Key;
 import java.util.List;
 
 public class PracticeTests {
@@ -42,9 +41,9 @@ public class PracticeTests {
         driver.get("http://practice.cybertekschool.com/login");
         driver.manage().window().maximize();
         driver.findElement(By.name("username")).sendKeys("tomsmith");
-        BrowserUtilites.wait(2);
+        BrowserUtils.wait(2);
         driver.findElement(By.name("password")).sendKeys("SuperSecretPassword");
-        BrowserUtilites.wait(2);
+        BrowserUtils.wait(2);
         driver.findElement(By.id("wooden_spoon")).click();
 
         WebElement message = driver.findElement(By.className("subheader"));
@@ -63,7 +62,7 @@ public class PracticeTests {
         driver.navigate().to("http://practice.cybertekschool.com/forgot_password");
         driver.manage().window().maximize();
         driver.findElement(By.name("email")).sendKeys("seze@asdas.com",Keys.ENTER);
-        BrowserUtilites.wait(2);
+        BrowserUtils.wait(2);
         String actual = driver.findElement(By.tagName("h4")).getText();
         String expected = "Your e-mail's been sent!" ;
 
@@ -80,7 +79,7 @@ public class PracticeTests {
         driver.manage().window().maximize();
         driver.findElement(By.linkText("Checkboxes")).click();
         List<WebElement> checkBoxes = driver.findElements(By.tagName("input"));
-        BrowserUtilites.wait(2);
+        BrowserUtils.wait(2);
         checkBoxes.get(0).click();
 
         Assert.assertTrue(checkBoxes.get(0).isSelected(),"CheckBox #1 is not selected");

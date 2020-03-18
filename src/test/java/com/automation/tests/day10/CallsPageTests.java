@@ -1,20 +1,16 @@
 package com.automation.tests.day10;
 
-import com.automation.utilities.BrowserUtilites;
+import com.automation.utilities.BrowserUtils;
 import com.automation.utilities.DriverFactory;
-import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
-
-import javax.swing.*;
 
 public class CallsPageTests {
     // which model will i automate ?
@@ -52,19 +48,19 @@ public class CallsPageTests {
     driver.get("https://qa2.vytrack.com/user/login");
     driver.manage().window().maximize();
 
-    BrowserUtilites.wait(3);
+    BrowserUtils.wait(3);
     actions = new Actions(driver);
 
 
     driver.findElement(usernameBy).sendKeys(storeManagerUsername);
     driver.findElement(passwordBy).sendKeys(storeManagerPassword, Keys.ENTER);
-    BrowserUtilites.wait(3);
+    BrowserUtils.wait(3);
 
     //hover over actieives
         actions.moveToElement(driver.findElement(activitiesBy)).perform();
-        BrowserUtilites.wait(3);
+        BrowserUtils.wait(3);
         driver.findElement(By.linkText("Calls")).click();
-        BrowserUtilites.wait(4);
+        BrowserUtils.wait(4);
 
     }
 

@@ -1,6 +1,6 @@
 package com.automation.tests.day5;
 
-import com.automation.utilities.BrowserUtilites;
+import com.automation.utilities.BrowserUtils;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -17,7 +17,7 @@ public class FileUploading {
 
         driver.get("http://practice.cybertekschool.com/upload");
 
-        BrowserUtilites.wait(2);
+        BrowserUtils.wait(2);
 
         // how to upload file ? - we need to find locator by that choose button
 
@@ -42,7 +42,7 @@ public class FileUploading {
         driver.findElement(By.id("file-submit")).click(); // to click upload
 
 
-        BrowserUtilites.wait(2);
+        BrowserUtils.wait(2);
 
         driver.quit();
 

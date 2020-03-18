@@ -1,6 +1,6 @@
 package com.automation.tests.day6;
 
-import com.automation.utilities.BrowserUtilites;
+import com.automation.utilities.BrowserUtils;
 import com.automation.utilities.DriverFactory;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -15,23 +15,25 @@ public class Alerts {
 
         WebDriver driver = DriverFactory.createADriver("chrome");
         driver.get("http://practice.cybertekschool.com/javascript_alerts");
-        BrowserUtilites.wait(2);
+        BrowserUtils.wait(2);
 
         // to find all buttons
         List<WebElement> buttons = driver.findElements(By.tagName("button"));
         // TagName is same for all of them
 
         buttons.get(0).click();
-        BrowserUtilites.wait(2);
+        // once we click button alert will show up on screen
+        BrowserUtils.wait(2);
         // to click on the first button
 
         String popupText = driver.switchTo().alert().getText();
-
+        // to get text on pop-up message
+        System.out.println(popupText);
 
         driver.switchTo().alert().accept();
         // to click ok on pop-up message(window)
 
-        String expected = "You successfully clicked an alert";
+        String expected = "You successfuly clicked an alert";
         String actual = driver.findElement(By.id("result")).getText();
         // actual is found by id of text.
 
@@ -44,11 +46,11 @@ public class Alerts {
         }
         // there is a bug in result text 'successfuly'
         // it will failed -> typoo..
-        BrowserUtilites.wait(2);
+        BrowserUtils.wait(2);
 
         buttons.get(1).click();
         // to click on the second button
-        BrowserUtilites.wait(2);
+        BrowserUtils.wait(2);
 
         driver.switchTo().alert().dismiss();
         // to click cancel
@@ -67,11 +69,16 @@ public class Alerts {
             System.out.println("ACTUAL = " +actual2);
         }
 
+        // Task for 5 minutes
+        // click on button 3
+        // enter some text (Hello, World!)
+        // verify that resul text ends with Hello, World!
         buttons.get(2).click();
-        BrowserUtilites.wait(2);
+        BrowserUtils.wait(2);
         driver.switchTo().alert().sendKeys("Hello, World!");
+        BrowserUtils.wait(3);
         driver.switchTo().alert().accept();
-        BrowserUtilites.wait(2);
+        BrowserUtils.wait(2);
 
         String expected3 = "Hello, World!";
         String actual3 =driver.findElement(By.id("result")).getText();
@@ -87,7 +94,7 @@ public class Alerts {
 
 
 
-        BrowserUtilites.wait(2);
+        BrowserUtils.wait(2);
         driver.quit();
 
 

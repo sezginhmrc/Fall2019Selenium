@@ -1,6 +1,6 @@
 package com.automation.tests.day5;
 
-import com.automation.utilities.BrowserUtilites;
+import com.automation.utilities.BrowserUtils;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -34,7 +34,7 @@ public class RadioButtons {
                 // and clicked all buttons and print attrbute like below
                 radioButton.click();
                 System.out.println("Clicked on : " +radioButton.getAttribute("id"));
-                BrowserUtilites.wait(1);
+                BrowserUtils.wait(1);
                 boolean isSelected = radioButton.isSelected();
                 // returns true if button already clicked
                 System.out.println(radioButton.getAttribute("id") + " is selected ? " + isSelected);
@@ -53,7 +53,7 @@ public class RadioButtons {
 
 
 
-        BrowserUtilites.wait(2);
+        BrowserUtils.wait(2);
         driver.quit();
 
 // throws exceotion you warning user that can throw exeption

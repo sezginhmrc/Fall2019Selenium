@@ -1,6 +1,6 @@
 package com.automation.tests.day8;
 
-import com.automation.utilities.BrowserUtilites;
+import com.automation.utilities.BrowserUtils;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
@@ -12,8 +12,6 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-import javax.swing.*;
-import java.security.Key;
 import java.util.List;
 
 public class SearchTests {
@@ -24,7 +22,7 @@ public class SearchTests {
     public void googleSearchTest(){
         driver.get("http://google.com");
         driver.findElement(By.name("q")).sendKeys("java", Keys.ENTER);
-        BrowserUtilites.wait(2);
+        BrowserUtils.wait(2);
 
 
         List<WebElement> listOfLinks = driver.findElements(By.tagName("h3"));
@@ -50,7 +48,7 @@ public class SearchTests {
         // to avoid unclickible links always make window maximize
 
         driver.findElement(By.id("twotabsearchtextbox")).sendKeys("Java", Keys.ENTER);
-        BrowserUtilites.wait(2);
+        BrowserUtils.wait(2);
 
         //find
         List <WebElement> searchIteams = driver.findElements(By.tagName("h2"));
@@ -58,7 +56,7 @@ public class SearchTests {
 
         // click on the firs item
         searchIteams.get(0).click();
-        BrowserUtilites.wait(2);
+        BrowserUtils.wait(2);
 
         WebElement producTitle = driver.findElement(By.id("title"));
 

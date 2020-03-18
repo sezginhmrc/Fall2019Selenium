@@ -1,6 +1,6 @@
 package com.automation.tests.WarpUp;
 
-import com.automation.utilities.BrowserUtilites;
+import com.automation.utilities.BrowserUtils;
 import com.automation.utilities.DriverFactory;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.By;
@@ -41,7 +41,7 @@ public class EbayAmazonWikipediaSearchTests {
         // splitted by space and get the first text
 
 
-        BrowserUtilites.wait(2);
+        BrowserUtils.wait(2);
         driver.quit();
 
     }
@@ -61,7 +61,7 @@ public class EbayAmazonWikipediaSearchTests {
             System.out.println("TEST FAILED");
         }
 
-        BrowserUtilites.wait(4);
+        BrowserUtils.wait(4);
         driver.quit();
 
 

@@ -1,7 +1,6 @@
 package com.automation.tests.WarpUp;
 
-import com.automation.utilities.BrowserUtilites;
-import com.automation.utilities.DriverFactory;
+import com.automation.utilities.BrowserUtils;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -26,11 +25,11 @@ public class Tuesday17 {
 
         WebElement contact_link = driver.findElement(By.xpath("//span[.='Contacts']/following-sibling::a"));
         contact_link.click();
-        BrowserUtilites.wait(3);
+        BrowserUtils.wait(3);
 
 
 
-        BrowserUtilites.wait(2);
+        BrowserUtils.wait(2);
         driver.quit();
     }
 }

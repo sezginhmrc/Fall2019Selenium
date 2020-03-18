@@ -1,6 +1,6 @@
 package com.automation.utilities;
 
-public class BrowserUtilites {
+public class BrowserUtils {
 
         public static void wait(int seconds){
             try {

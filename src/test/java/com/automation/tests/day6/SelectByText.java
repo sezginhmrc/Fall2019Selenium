@@ -1,6 +1,6 @@
 package com.automation.tests.day6;
 
-import com.automation.utilities.BrowserUtilites;
+import com.automation.utilities.BrowserUtils;
 import com.automation.utilities.DriverFactory;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -15,18 +15,18 @@ public class SelectByText {
 
         WebDriver driver = DriverFactory.createADriver("chrome");
         driver.get("http://practice.cybertekschool.com/dropdown");
-        BrowserUtilites.wait(2);
+        BrowserUtils.wait(2);
 
         WebElement simpleDropdown = driver.findElement(By.id("dropdown"));
-        BrowserUtilites.wait(2);
+        BrowserUtils.wait(2);
 
         Select select = new Select(simpleDropdown);
         // We created select object to find locator
         // select option 2
         select.selectByVisibleText("Option 2");
-        BrowserUtilites.wait(2);
+        BrowserUtils.wait(2);
         select.selectByVisibleText("Option 1");
-        BrowserUtilites.wait(2);
+        BrowserUtils.wait(2);
 
         // if i need to find another dropdown i need to create another select object
 
@@ -61,7 +61,7 @@ public class SelectByText {
             //get the month name and select based on that
             String monthName = month.getText();
             selectMonth.selectByVisibleText(monthName);
-            BrowserUtilites.wait(2);
+            BrowserUtils.wait(1);
         }
 
 
@@ -87,12 +87,15 @@ public class SelectByText {
 
         List <WebElement> states = stateSelect.getOptions();
 
+        // getoptions returns all states from dropdown
+
+
         for(WebElement statesOption : states){
             System.out.println(statesOption.getText());
         }
 
 
-        BrowserUtilites.wait(1);
+        BrowserUtils.wait(1);
         driver.quit();
 
     }

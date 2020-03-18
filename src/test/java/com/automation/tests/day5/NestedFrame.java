@@ -1,6 +1,6 @@
 package com.automation.tests.day5;
 
-import com.automation.utilities.BrowserUtilites;
+import com.automation.utilities.BrowserUtils;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -16,7 +16,7 @@ public class NestedFrame {
         WebDriver driver = new ChromeDriver();
 
         driver.get("http://practice.cybertekschool.com/nested_frames");
-        BrowserUtilites.wait(2);
+        BrowserUtils.wait(2);
 
         driver.switchTo().frame("frame-top");
         // we got the top frame first
@@ -31,7 +31,7 @@ public class NestedFrame {
         driver.switchTo().parentFrame(); // go to the top frame
 
         driver.switchTo().frame("frame-right");
-        BrowserUtilites.wait(2);
+        BrowserUtils.wait(2);
         // switch to the bottom frame aftr go back to parentFrame
 
 

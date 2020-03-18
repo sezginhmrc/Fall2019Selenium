@@ -1,8 +1,6 @@
 package com.automation.tests.day6;
 
-import java.util.Date;
-
-import com.automation.utilities.BrowserUtilites;
+import com.automation.utilities.BrowserUtils;
 import com.automation.utilities.DriverFactory;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -19,7 +17,7 @@ public class SelectByTextMultipleOptions {
 
         WebDriver driver = DriverFactory.createADriver("chrome");
         driver.get("http://practice.cybertekschool.com/dropdown");
-        BrowserUtilites.wait(2);
+        BrowserUtils.wait(2);
         // WE WENT DROPDOWN PRACTICE
 
 
@@ -29,7 +27,7 @@ public class SelectByTextMultipleOptions {
         // SINCE THERE IS NO ID FOR SELECT OPTION WE WENT THROUH NAME
 
         boolean isMultiple = selectByLanguage.isMultiple();
-        System.out.println(isMultiple);
+        System.out.println(isMultiple); // returns true
         // returns if this select element has nultiple options at the same time
         // it is checking multiple attribute
 
@@ -38,10 +36,9 @@ public class SelectByTextMultipleOptions {
         // AND WE SELECTED THE JAVA OPTION BY VISIBLE TEXT
         selectByLanguage.selectByVisibleText("JavaScript");
         // WE ALSO SELECTED JAVASCRIPT SINCE IT IS ALLOWS MUTLIPLE OTPIONS
-
         // We would also select by value like below....
-        // selectByLanguage.selectByValue("ruby");
-        // selectByLanguage.selectByValue("c");
+         selectByLanguage.selectByValue("python");
+         selectByLanguage.selectByValue("js");
         // selectByLanguage.selectByValue("java");
 
 
@@ -52,7 +49,7 @@ public class SelectByTextMultipleOptions {
         for(WebElement selectedOnes : selecTedLanguages){
             System.out.println(selectedOnes.getText());
         }
-        BrowserUtilites.wait(2);
+        BrowserUtils.wait(2);
 
         /// THIS IS HOW TO DESELECTED BACK THE SELECTED OPTION.
         selectByLanguage.deselectByVisibleText("JavaScript");
@@ -66,7 +63,7 @@ public class SelectByTextMultipleOptions {
         }
 
 
-        BrowserUtilites.wait(2);
+        BrowserUtils.wait(2);
         driver.quit();
     }
 }

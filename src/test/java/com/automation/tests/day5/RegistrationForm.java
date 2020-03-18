@@ -1,6 +1,6 @@
 package com.automation.tests.day5;
 
-import com.automation.utilities.BrowserUtilites;
+import com.automation.utilities.BrowserUtils;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -16,7 +16,7 @@ public class RegistrationForm {
         WebDriver driver = new ChromeDriver();
         driver.get("http://practice.cybertekschool.com/registration_form");
         driver.manage().window().maximize();
-        BrowserUtilites.wait(4);
+        BrowserUtils.wait(4);
         driver.findElement(By.name("firstname")).sendKeys("sezgin");
         driver.findElement(By.name("lastname")).sendKeys("hamurcu");
         driver.findElement(By.name("username")).sendKeys("sezohamurc");
@@ -38,15 +38,15 @@ public class RegistrationForm {
         Select departmentSelect = new Select(driver.findElement(By.name("department")));
 
         departmentSelect.selectByIndex(1);
-        BrowserUtilites.wait(4);
+        BrowserUtils.wait(4);
 
         Select jobSelect = new Select(driver.findElement(By.name("job_title")));
         jobSelect.selectByIndex(4);
-        BrowserUtilites.wait(4);
+        BrowserUtils.wait(4);
 
         // radio buttons are visible or not ?
         driver.findElement(By.id("inlineCheckbox2")).click();
-        BrowserUtilites.wait(4);
+        BrowserUtils.wait(4);
         // to select java
         // it is visible on screen no need select just click..
 
@@ -69,7 +69,7 @@ public class RegistrationForm {
 
 
 
-        BrowserUtilites.wait(3);
+        BrowserUtils.wait(3);
         driver.quit();
 
     }

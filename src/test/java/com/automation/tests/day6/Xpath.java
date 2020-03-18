@@ -1,6 +1,6 @@
 package com.automation.tests.day6;
 
-import com.automation.utilities.BrowserUtilites;
+import com.automation.utilities.BrowserUtils;
 import com.automation.utilities.DriverFactory;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -12,26 +12,47 @@ public class Xpath {
 
         WebDriver driver = DriverFactory.createADriver("chrome");
         driver.get("http://practice.cybertekschool.com/multiple_buttons");
-        BrowserUtilites.wait(2);
+        BrowserUtils.wait(2);
 
 
-        WebElement btn1 = driver.findElement(By.xpath("//*[@id=\"content\"]/div[1]/button[1]"));
+        // click on button 1
+
+        WebElement btn1 = driver.findElement(By.xpath("//*[@onclick='button1()']"));
+        // copy from element -> //*[@id="content"]/div[1]/button[1]
         btn1.click();
-        BrowserUtilites.wait(2);
+        BrowserUtils.wait(2);
 
         WebElement result = driver.findElement(By.id("result"));
         System.out.println(result.getText());
 
 
         //click on button 2
-        // how you can go form parent to child
-        WebElement btn2 = driver.findElement(By.xpath("//button[text()='Button 2']"));
+
+        WebElement btn2 = driver.findElement(By.xpath("//button[@name='button2']"));
+        // tih is another way -> //button[text()='Button 2']
+        // xPath ->  // tagname[@Select attirbute='value']
         btn2.click();
         System.out.println(result.getText());
 
-        WebElement btn3 = driver.findElement(By.xpath("//button[starts-with(@id,'button_')]"));
+        // click on button 3
+        // Best way is text()..
+        WebElement btn3 = driver.findElement(By.xpath("//button[text()='Button 5']"));
+        // another way -/> button[starts-with(@id,'button_')]
+        // another way -> //button[contains(@id,'button_')]
         btn3.click();
-        BrowserUtilites.wait(2);
+        System.out.println(result.getText());
+
+        WebElement btn4 = driver.findElement(By.xpath("//button[contains(text(),'4')]"));
+        btn4.click();
+        System.out.println(result.getText());
+
+        WebElement btn5 = driver.findElement(By.xpath("//button[contains(text(),'5')]"));
+        btn5.click();
+        System.out.println(result.getText());
+
+
+
+        BrowserUtils.wait(2);
         driver.quit();
 
 
@@ -53,6 +74,7 @@ public class Xpath {
 // //button[@name='button2']
 // //button [@class='btn btn-primary']
 // //button [@onclick='button2()']
+// * start means skip tagName
 
 // Dynamic Elements ? (changing)
 // 1. Any tag

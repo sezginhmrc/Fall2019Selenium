@@ -1,6 +1,6 @@
 package com.automation.tests.day5;
 
-import com.automation.utilities.BrowserUtilites;
+import com.automation.utilities.BrowserUtils;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -16,7 +16,7 @@ public class TestForiFrame {
 
         WebDriver driver = new ChromeDriver();
         driver.get("http://practice.cybertekschool.com/iframe");
-        BrowserUtilites.wait(3);
+        BrowserUtils.wait(3);
 
         // before loooking for that element we need to jump to frame
         // you can specify ; name, id, index or webelement of the frame
@@ -30,14 +30,14 @@ public class TestForiFrame {
        // we found that element by id
         System.out.println(textInput.getText());
 
-        BrowserUtilites.wait(2);
+        BrowserUtils.wait(2);
 
         textInput.clear();
         // we deleted the text from content
 
         textInput.sendKeys("Hello, World!");
         // typed some words
-        BrowserUtilites.wait(2);
+        BrowserUtils.wait(2);
         System.out.println(textInput.getText());
         // got the text
 

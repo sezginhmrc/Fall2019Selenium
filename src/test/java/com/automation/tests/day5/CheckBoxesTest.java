@@ -1,6 +1,6 @@
 package com.automation.tests.day5;
 
-import com.automation.utilities.BrowserUtilites;
+import com.automation.utilities.BrowserUtils;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -16,7 +16,7 @@ public class CheckBoxesTest {
         WebDriver driver = new ChromeDriver();
 
         driver.get("http://practice.cybertekschool.com/checkboxes");
-        BrowserUtilites.wait(2);
+        BrowserUtils.wait(2);
 
         // TASK verify that 1st checkbox is not selected and 2nd is selected
 
@@ -27,7 +27,7 @@ public class CheckBoxesTest {
        } else {
            System.out.println("TEST FAILED");
        }
-        BrowserUtilites.wait(2);
+        BrowserUtils.wait(2);
 
         // lets click on the first checkbox and verify it is clicked
        WebElement checkbox1 = checkBoxes.get(0);
@@ -43,7 +43,7 @@ public class CheckBoxesTest {
 
 
 
-       BrowserUtilites.wait(2);
+       BrowserUtils.wait(2);
        driver.quit();
     }
 }

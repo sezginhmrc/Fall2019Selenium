@@ -1,6 +1,6 @@
 package com.automation.tests.day10;
 
-import com.automation.utilities.BrowserUtilites;
+import com.automation.utilities.BrowserUtils;
 import com.automation.utilities.DriverFactory;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
@@ -12,12 +12,10 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-import java.security.Key;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
-import java.time.format.FormatStyle;
 
 public class CalendarEventsPageTests {
 
@@ -47,17 +45,17 @@ public class CalendarEventsPageTests {
         driver.get("https://qa2.vytrack.com/user/login");
         driver.manage().window().maximize();
         actions = new Actions(driver);
-        BrowserUtilites.wait(3);
+        BrowserUtils.wait(3);
 
         driver.findElement(usernameBy).sendKeys(storeManagerUserName);
         driver.findElement(passwordBy).sendKeys(storeManagerPassword, Keys.ENTER);
-        BrowserUtilites.wait(4);
+        BrowserUtils.wait(4);
 
         //hover over Activities
         actions.moveToElement(driver.findElement(activitiesBy)).perform();
-        BrowserUtilites.wait(3);
+        BrowserUtils.wait(3);
         driver.findElement(By.linkText("Calendar Events")).click();
-        BrowserUtilites.wait(3);
+        BrowserUtils.wait(3);
     }
 
     @Test
@@ -80,7 +78,7 @@ public class CalendarEventsPageTests {
     public void verifyDefaultValues(){
         // click on create calendar event
         driver.findElement(createCalendarEventBtnBy).click();
-        BrowserUtilites.wait(4);
+        BrowserUtils.wait(4);
 
         String currentUsername = driver.findElement(currentUserBy).getText().trim();
         //Default owner name should be current user
