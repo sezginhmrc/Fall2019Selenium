@@ -21,8 +21,7 @@ public class SelectByText {
         BrowserUtilites.wait(2);
 
         Select select = new Select(simpleDropdown);
-        // We created select object.
-        // we pass webElemet as a parameter
+        // We created select object to find locator
         // select option 2
         select.selectByVisibleText("Option 2");
         BrowserUtilites.wait(2);
@@ -54,7 +53,7 @@ public class SelectByText {
         selectDay.selectByValue("2");
 
 
-        // LETS SELECT ALL MONHS ONE BY ONE
+        // LETS SELECT ALL MONtHS ONE BY ONE
         // getOptions - retuns all options from dropdowns as List<WebElemet>
 
         List<WebElement> months = selectMonth.getOptions();
@@ -75,7 +74,7 @@ public class SelectByText {
 
         String selected = stateSelect.getFirstSelectedOption().getText();
         // getFirstSelectedOption() - this appears option that currently opened
-        // so we selec the CT in above
+        // so we selected the CT in above
         // getFirstSelectedOption() - returns a webelement, thats why we need to call getText()
 
         if(selected.equals("Connecticut")){
@@ -96,11 +95,22 @@ public class SelectByText {
         BrowserUtilites.wait(1);
         driver.quit();
 
-
-
-
-
-
-
     }
 }
+
+
+/*
+* SUMMARY
+* Drop-Downs
+* There are 2 types of Drop-Down
+* Select and UnSelect
+* Select class to handle dropdowns
+* Select class methods ;
+* selectByIndex (when you list elements by list)
+* selectByValue (select options that have a value)
+* selectByVisibleText (select options that displayed text matching
+* for each select dropdown i create another select object
+* getOptions returns all options from Dropdown as a List <Webelemet>
+* getFirstSelectedOption returns first selected web element
+*
+* */

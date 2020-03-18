@@ -38,3 +38,32 @@ public class Xpath {
 
     }
 }
+// Absoulte xPath ;
+// singe / absolute xpath one by one all locators
+// this might get very long
+// not very productive since it is a long way to go
+
+// Relative xPath
+// double //  relative xPath
+// it works through relative locations instead of from beginning to end
+// start a designated tag
+// tagName [@attrbiute='value']
+// <button class="btn btn-primary" onclick="button2()"
+// name="button2> Button 2</button>
+// //button[@name='button2']
+// //button [@class='btn btn-primary']
+// //button [@onclick='button2()']
+
+// Dynamic Elements ? (changing)
+// 1. Any tag
+// tagName will be replaces with a *
+// //*[@attribute='value']
+// 2. Operator 'and' (&&)
+// combine two different attribues to find a single element
+// // tagName [@attribute= 'value' and @attribute2 ='value2']
+// // tagName[@attribute='value'] [@attribute2='value2']
+//  options to use end operator
+// <button class="btn btn-primary" onclick="button2()"
+// name="button2> Button 2</button>
+// //button [@class='btn btn-primary and @onclick='button2()']
+

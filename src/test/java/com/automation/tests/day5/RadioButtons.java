@@ -26,6 +26,8 @@ public class RadioButtons {
 
         for(WebElement radioButton : radioButtons){
 
+
+
             if(radioButton.isEnabled()){
                 // ISENABLE RETURN BOOLEAN
                 // it checks if enable to click
@@ -33,13 +35,18 @@ public class RadioButtons {
                 radioButton.click();
                 System.out.println("Clicked on : " +radioButton.getAttribute("id"));
                 BrowserUtilites.wait(1);
+                boolean isSelected = radioButton.isSelected();
+                // returns true if button already clicked
+                System.out.println(radioButton.getAttribute("id") + " is selected ? " + isSelected);
             }
+
         // clicked all button on webpage
         // but there is a button disable How to check it ?
             // added if button.isEnabled
             else {
                 System.out.println("Button is disabled, not clicked : " +radioButton.getAttribute("id"));
             }
+            System.out.println();
         }
         // all ids are unique
 
