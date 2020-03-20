@@ -3,9 +3,11 @@ package com.automation.tests.day10;
 import com.automation.utilities.BrowserUtils;
 import com.automation.utilities.DriverFactory;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
+import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
@@ -47,9 +49,65 @@ public class ActionsTests {
         // perfom is what do yo do with action
         // pause(1000) like Thread.sleep(1000)
 
+        // so far we clicked all image and texted are displayed
+        // lets verify displayed texts
+        // "name; user1' is displayed..
+
+        actions.moveToElement(img1).perform();
+        WebElement imgTxt1 = driver.findElement(By.xpath("//h5[text()='name: user1']"));
+        Assert.assertTrue(imgTxt1.isDisplayed());
+
+        System.out.println(imgTxt1.getText());
 
 
+        //moveto second image
+        actions.moveToElement(img2).perform();
+        WebElement imgTxt2 = driver.findElement(By.xpath("//*[text()='name: user2']"));
+        Assert.assertTrue(imgTxt2.isDisplayed());
+    }
 
+    // Another test on different practice link
+    // hover on "enabled"
+    // hover on 'dowloand'
+    // click on pdf
+
+    @Test(description = "jqueryMenuTest")
+    public void jqueryMenuTest() {
+
+        driver.get("http://practice.cybertekschool.com/jqueryui/menu");
+        BrowserUtils.wait(2);
+
+        WebElement enabled = driver.findElement(By.xpath("//*[text()='Enabled']"));
+        WebElement dowloand = driver.findElement(By.xpath("//*[text()='Downloads']"));
+        WebElement pdf = driver.findElement(By.xpath("//*[text()='PDF']"));
+
+        actions.moveToElement(enabled).pause(1000).
+                moveToElement(dowloand).pause(1000).
+                click(pdf).build().perform();
+        // We found elements by their xml and used action method -> moveToelement
+        // added some wait -> pause
+        // Actions class build method allows us to take more actions like above
+        // and clicked on Pdf since we didnt moveto Pdf it is already visible
+    }
+
+    // ANOTHER TEST ON DRAG AND DROP
+    @Test
+    public void dragandDropTest(){
+        driver.get("https://demos.telerik.com/kendo-ui/dragdrop/index");
+        driver.manage().window().maximize();
+        BrowserUtils.wait(5);
+
+        //WebElement cookies = driver.findElement(By.id("alert-box-message"));
+        //driver.switchTo().alert().accept();
+        WebElement earth  =driver.findElement(By.id("droptarget"));
+        WebElement moon = driver.findElement(By.id("draggable"));
+
+        actions.dragAndDrop(moon,earth).pause(1000).perform();
+
+        String expected ="You did great!";
+        String actual = earth.getText();
+
+        Assert.assertEquals(actual,expected);
     }
 
 
@@ -60,3 +118,8 @@ public class ActionsTests {
         driver.quit();
     }
 }
+
+// bad thing is in my curren project
+// We have couple teams and i had to switch another team i had to create test cases on something that i dont know at all
+// manual testing is not cool
+// stackoverflow is my best frined
