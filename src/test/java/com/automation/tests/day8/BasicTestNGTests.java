@@ -4,6 +4,7 @@ import org.testng.Assert;
 import org.testng.annotations.*;
 
 public class BasicTestNGTests {
+
     // Runs only once before @BeforeClass and @BeforeMethod
     @BeforeTest
     public void beforeTest(){
@@ -31,11 +32,8 @@ public class BasicTestNGTests {
         // smth should be done only once in the class AFTER ALL TESTS
         System.out.println("AFTER CLASS");
     }
-
-
     //runs before every test automatically
     // works as a pre-condition
-    // before or after test it will run 3
     @BeforeMethod
     public void setup(){
         System.out.println("BEFORE METHOD");
@@ -46,6 +44,10 @@ public class BasicTestNGTests {
     public void teardown(){
         System.out.println("AFTER METHOD");
     }
+
+
+
+
 
     @Test
     public void test1(){
@@ -58,6 +60,7 @@ public class BasicTestNGTests {
         Assert.assertEquals(actual,expected);
     }
 
+
     @Test
     public void test2(){
         System.out.println("TEST 2");
@@ -67,7 +70,8 @@ public class BasicTestNGTests {
         Assert.assertTrue(num1<num2);
     }
 }
-// once we have mmore test above annotations will help us
+
+// once we have more tests above annotations will help us
 
 
 // ABOUT TETSNG...
@@ -90,7 +94,7 @@ Generate Reports (the reporting for testNg, instead we use a different tool)
 - they have information for how a test should instructions
 
 @Test
-- the method below is a test case (this way we can run the test case)
+- this way we can run our test cases seperatly than other ones
 - without main method
 
 @BeforeMethod @AfterMethod

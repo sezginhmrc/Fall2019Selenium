@@ -6,10 +6,13 @@ import org.testng.annotations.Test;
 public class UnitTestPractice {
 
     public static void main(String[] args) {
+
         // unit testing
-        // to check if our method works properly
-        // if assertion fails, that means our merhod does no wrok correctly
+        // to check if our method works properly(reverseString)
+        // if assertion fails, that means our method does not work properly
         // that means we have to fix the method
+        // so we can esily fix the bug here in early stage
+        // if we skip the unit testing and there is an occur bug it may cost to company
 
 
         String expected = "cba";
@@ -22,6 +25,7 @@ public class UnitTestPractice {
     }
     // This is unit testing now..
     // annotation (it comes from TestNG)
+    // Test is verfying the String is reversing .....(unit testing)
     @Test(description = "Verify if method can reverse a string")
     public void test(){
         String expected = "elppa" ;
@@ -70,3 +74,10 @@ public class UnitTestPractice {
 }
 // Unit testing concept is checking if methods working properly
 
+// What is TestNG and benefits ?
+// TestNg is unit testin tool and functional testing
+// TestNg is tool that has assrtions in test easily
+// TestNg use annotions to control test flow
+// Generate report eaisly
+// we will have visible test results with TestNg
+// We can find and add TestNg into our project by MvnRepository

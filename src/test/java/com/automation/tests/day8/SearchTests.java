@@ -19,6 +19,7 @@ public class SearchTests {
     private WebDriver driver ;
 
     @Test
+    // in test we will focus on testing part
     public void googleSearchTest(){
         driver.get("http://google.com");
         driver.findElement(By.name("q")).sendKeys("java", Keys.ENTER);
@@ -68,8 +69,12 @@ public class SearchTests {
 
 
     }
+
+
     @BeforeMethod
     public void setup(){
+        // to setup driver We used @Beforemethod annotation
+        // it is like pre condtion
         WebDriverManager.chromedriver().version("79").setup();
         driver = new ChromeDriver();
     }
