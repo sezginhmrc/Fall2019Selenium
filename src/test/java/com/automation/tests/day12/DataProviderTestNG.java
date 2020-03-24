@@ -5,6 +5,7 @@ import com.automation.utilities.DriverFactory;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 public class DataProviderTestNG {
@@ -36,7 +37,11 @@ public class DataProviderTestNG {
         driver.quit();
     }
 
-    @Test (priority = 1)
+    @DataProvider(name="testData")
+    public Object [] testData(){
+        return new Object[] {"200","301"} ;
+    }
+    @Test (priority = 1 , dataProvider = "testData")
     public void TestCase10(){
 
         WebDriver driver = DriverFactory.createADriver("chrome");

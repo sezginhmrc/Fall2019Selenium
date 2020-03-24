@@ -6,6 +6,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
@@ -33,11 +34,8 @@ public class TestScripts9to12 {
         String expected = "This page returned a "+code+" status code";
         String actual = driver.findElement(By.xpath("//p")).getText();
 
-        if(actual.contains(expected)){
-            System.out.println("TEST PASSED");
-        } else {
-            System.out.println("FAILED");
-        }
+        Assert.assertTrue(actual.contains(expected));
+
         driver.close();
     }
 
