@@ -29,5 +29,16 @@ public class DriverFactory {
             return new SafariDriver();
 
         }
+        /*browserName = browserName.toLowerCase();
+        switch (browserName){
+            case "chrome":
+                WebDriverManager.chromedriver().setup();
+                return  new ChromeDriver();
+        }
+        return null ; */
+        // i used polymothisim when i setup my browser
+
+
+
     }
 }

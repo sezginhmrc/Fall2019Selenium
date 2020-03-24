@@ -32,6 +32,7 @@
     <dependencies>
 
         <!-- https://mvnrepository.com/artifact/org.testng/testng -->
+        <!-- TestNg -->
         <dependency>
             <groupId>org.testng</groupId>
             <artifactId>testng</artifactId>
@@ -51,11 +52,14 @@
             <version>1.7.30</version>
         </dependency>
 
+        <!-- Selenium -->
         <dependency>
             <groupId>org.seleniumhq.selenium</groupId>
             <artifactId>selenium-java</artifactId>
             <version>3.141.59</version>
         </dependency>
+
+        <!--Webdriver-->
 
         <dependency>
             <groupId>io.github.bonigarcia</groupId>
