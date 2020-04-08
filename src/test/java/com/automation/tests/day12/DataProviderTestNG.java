@@ -9,6 +9,7 @@ import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 public class DataProviderTestNG {
+
     @Test(priority = 0, description = "Verify that message is displayed : 'This page returned a 200 status code'")
     public void test9(){
 
@@ -23,6 +24,7 @@ public class DataProviderTestNG {
         WebElement statucode = driver.findElement(By.linkText("200"));
         statucode.click();
         // xpath -> //a[text()='200']
+        // xpath -> //a[contains(text(),'2')]
 
         String expected = "This page returned a 200 status code.";
         WebElement displayMessageElement = driver.findElement(By.xpath("//p"));
@@ -37,10 +39,12 @@ public class DataProviderTestNG {
         driver.quit();
     }
 
+
     @DataProvider(name="testData")
     public Object [] testData(){
         return new Object[] {"200","301"} ;
     }
+
     @Test (priority = 1 , dataProvider = "testData")
     public void TestCase10(){
 

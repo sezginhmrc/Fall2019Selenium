@@ -13,6 +13,7 @@ import org.testng.annotations.Test;
 
 public class JavaScriptExecuter {
 
+    // we need to upcasting to be able to interact our browser by JSE
     private WebDriver driver ;
 
 
@@ -32,6 +33,7 @@ public class JavaScriptExecuter {
             // ExecuteScript method execute javascript code
             // We provide actual as astring
             // return.document.title always like this
+            System.out.println(actual);
 
             Assert.assertEquals(actual,exptexted);
 
@@ -44,14 +46,16 @@ public class JavaScriptExecuter {
         public void clickTest(){
             WebElement link = driver.findElement(By.linkText("Multiple Buttons"));
             BrowserUtils.wait(2);
-           // link.click(); // this is how we click regularly
-            // now we gonna click it by JSE
+
+            // we found link and we will click the link by JSE
             JavascriptExecutor js = (JavascriptExecutor) driver;
+
            // js.executeScript("",link);
             // after "" we can list webelement that will be used as part of your java script code
 
+            // after comma we can specify element that will be interact
             js.executeScript("arguments[0].click()",link);
-            // we clicked multiple buttons link by js
+            // we clicked multiple buttons link by JSE
 
             WebElement bttn6 = driver.findElement(By.cssSelector("#disappearing_button"));
             js.executeScript("arguments[0].click()",bttn6);
@@ -61,11 +65,41 @@ public class JavaScriptExecuter {
             WebElement result = driver.findElement(By.cssSelector("#result"));
             Assert.assertEquals(result.getText(),"Now it's gone!");
 
-            // We usualy deal with one argument -> arguments[0]
-
-
+            // We usually deal with one argument -> arguments[0]
 
         }
+        @Test
+        public void practiceJSE(){
+
+            WebElement link = driver.findElement(By.linkText("Form Authentication"));
+            BrowserUtils.wait(3);
+
+            JavascriptExecutor js = (JavascriptExecutor) driver;
+
+            js.executeScript("arguments[0].click()",link);
+
+            BrowserUtils.wait(3);
+
+            WebElement username = driver.findElement(By.name("username"));
+            WebElement password = driver.findElement(By.name("password"));
+            WebElement login = driver.findElement(By.id("wooden_spoon"));
+
+            js.executeScript("arguments[0].setAttribute('value','tomsmith')",username);
+            js.executeScript("arguments[0].setAttribute('value','SuperSecretPassword')",password);
+            js.executeScript("arguments[0].click()",login);
+            // arguments[0] this index one element
+
+            BrowserUtils.wait(4);
+
+            String expected = "Welcome to the Secure Area. When you are done click logout below.";
+
+            String actual = js.executeScript("return document.getElementsByClassName('subheader')[0].textContent").toString();
+
+            Assert.assertEquals(actual,expected);
+
+        }
+
+
     @Test
     public void enterTextJCE(){
 
@@ -101,14 +135,17 @@ public class JavaScriptExecuter {
 
             js.executeScript("arguments[0].scrollIntoView(true)",link);
             // just scrooling the page down from webpage
-
+            // if true it will be scrollin
         }
 
         @Test
         public void scrollTest(){
             driver.navigate().to("http://practice.cybertekschool.com/infinite_scroll");
             JavascriptExecutor js = (JavascriptExecutor) driver ;
-            js.executeScript("window.scrollBy(0,1000)");
+            BrowserUtils.wait(4);
+            for (int i = 0; i <15 ; i++) {
+                js.executeScript("window.scrollBy(250,1000)");
+            }
 
         }
 

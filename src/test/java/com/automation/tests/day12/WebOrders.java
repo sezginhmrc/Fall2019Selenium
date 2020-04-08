@@ -15,13 +15,13 @@ import org.testng.annotations.Test;
 import java.util.List;
 
 public class WebOrders {
+
     private WebDriver driver;
-    private WebDriverWait wait;
 
     @BeforeMethod
     public void setup() {
         driver = DriverFactory.createADriver("chrome");
-        wait = new WebDriverWait(driver, 10);
+        WebDriverWait wait = new WebDriverWait(driver, 10);
         driver.get("http://secure.smartbearsoftware.com/samples/testcomplete12/weborders/");
         driver.findElement(By.id("ctl00_MainContent_username")).sendKeys("Tester");
         driver.findElement(By.id("ctl00_MainContent_password")).sendKeys("test", Keys.ENTER);
@@ -35,7 +35,7 @@ public class WebOrders {
 
         driver.findElement(By.id("ctl00_MainContent_btnCheckAll")).click();
         BrowserUtils.wait(2);
-        List<WebElement> checkBoxes = driver.findElements(By.xpath("input[type='checkbox']"));
+        List<WebElement> checkBoxes = driver.findElements(By.xpath("input[@type='checkbox']"));
 
         for (WebElement boxes : checkBoxes) {
             Assert.assertTrue(boxes.isSelected());
@@ -47,8 +47,8 @@ public class WebOrders {
     // then verify tjat zip code is match as updated
    @Test
    public void verifyzipcode(){
-        WebElement zipcode = driver.findElement(By.xpath("//table//tr[4]//td[9]"));
 
+        WebElement zipcode = driver.findElement(By.xpath("//table//tr[4]//td[9]"));
        Assert.assertEquals(zipcode.getText(),"21233");
        //verified defoult zip code
 

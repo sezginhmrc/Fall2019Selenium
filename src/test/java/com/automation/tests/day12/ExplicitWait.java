@@ -28,6 +28,7 @@ public class ExplicitWait {
         // expected condition failed
         // driver tried to check if title contains Amazon in 10 seconds
         // it didnt match and threw the TimeOutException
+        // titles is not Amazon on Aamazon
 
         // ExpectedCondition has several condistions
         // we can create webdriverwait object once
@@ -35,6 +36,7 @@ public class ExplicitWait {
 
         driver.navigate().to("https://amazon.com");
         wait.until(ExpectedConditions.titleIs("Amazon"));
+        // since title is not amazon it tried 5 seconds and thres timeoutexception
 
     }
 
@@ -44,7 +46,6 @@ public class ExplicitWait {
 
         WebDriverWait wait = new WebDriverWait(driver,10);
 
-
         driver.findElement(By.tagName("button")).click();
 
         WebElement username = driver.findElement(By.id("username"));
@@ -52,10 +53,12 @@ public class ExplicitWait {
         WebElement submit = driver.findElement(By.cssSelector("button[type='submit']"));
 
         wait.until(ExpectedConditions.visibilityOf(username)).sendKeys("tomsmith");
+        // if username element display if it displayed it will move forward
         wait.until(ExpectedConditions.visibilityOf(password)).sendKeys("SuperSecretPassword");
         wait.until(ExpectedConditions.visibilityOf(submit));
 
         wait.until(ExpectedConditions.elementToBeClickable(submit)).click();
+        // it waits if submit element clickalbe
 
 
         String expected = "Welcome to the Secure Area. When you are done click logout below.";
@@ -78,13 +81,15 @@ public class ExplicitWait {
 
 
          wait.until(ExpectedConditions.invisibilityOfElementLocated(By.className("loadingoverlay")));
-         // okay thi is the focus of this class
+         // okay this is the focus of this class
         // we check if is there an element before our elemenets
         // we put this condiiton here it handles this element
         //  it is overlay loading
-
+        // it waits for that element is invisibile otherwise we are not able to move forward.
+        // it would throw ElementClickInterceptedException
 
         wait.until(ExpectedConditions.elementToBeClickable(submitBtn));
+
 
         username.sendKeys("tomsmith");
         password.sendKeys("SuperSecretPassword");

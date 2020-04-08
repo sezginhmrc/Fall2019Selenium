@@ -46,6 +46,7 @@ public class RegistrationForm {
 
         // radio buttons are visible or not ?
         driver.findElement(By.id("inlineCheckbox2")).click();
+        // for java language
         BrowserUtils.wait(4);
         // to select java
         // it is visible on screen no need select just click..

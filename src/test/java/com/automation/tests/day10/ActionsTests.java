@@ -15,6 +15,7 @@ import org.testng.annotations.Test;
 import javax.swing.*;
 
 public class ActionsTests {
+
     private WebDriver driver;
     private Actions actions ;
 
@@ -22,6 +23,7 @@ public class ActionsTests {
     @BeforeMethod
     public void setup(){
         driver= DriverFactory.createADriver("chrome");
+        driver.manage().window().maximize();
         actions = new Actions(driver);
 
 
@@ -60,7 +62,7 @@ public class ActionsTests {
         System.out.println(imgTxt1.getText());
 
 
-        //moveto second image
+        //move to second image and verify text is dispayed
         actions.moveToElement(img2).perform();
         WebElement imgTxt2 = driver.findElement(By.xpath("//*[text()='name: user2']"));
         Assert.assertTrue(imgTxt2.isDisplayed());
@@ -75,19 +77,21 @@ public class ActionsTests {
     public void jqueryMenuTest() {
 
         driver.get("http://practice.cybertekschool.com/jqueryui/menu");
-        BrowserUtils.wait(2);
+        BrowserUtils.wait(4);
 
-        WebElement enabled = driver.findElement(By.xpath("//*[text()='Enabled']"));
-        WebElement dowloand = driver.findElement(By.xpath("//*[text()='Downloads']"));
-        WebElement pdf = driver.findElement(By.xpath("//*[text()='PDF']"));
+        WebElement enabled = driver.findElement(By.xpath("//ul[@id='menu']/*[2]"));
+        WebElement downloads = driver.findElement(By.cssSelector("a[id='ui-id-4']"));
+        WebElement pdf = driver.findElement(By.cssSelector("a[id='ui-id-5']"));
 
-        actions.moveToElement(enabled).pause(1000).
-                moveToElement(dowloand).pause(1000).
-                click(pdf).build().perform();
+        BrowserUtils.wait(5);
+
+        actions.moveToElement(enabled).pause(1000).moveToElement(downloads).pause(1000).click(pdf).build().perform();
+
         // We found elements by their xml and used action method -> moveToelement
         // added some wait -> pause
         // Actions class build method allows us to take more actions like above
         // and clicked on Pdf since we didnt moveto Pdf it is already visible
+
     }
 
     // ANOTHER TEST ON DRAG AND DROP
@@ -96,6 +100,10 @@ public class ActionsTests {
         driver.get("https://demos.telerik.com/kendo-ui/dragdrop/index");
         driver.manage().window().maximize();
         BrowserUtils.wait(5);
+
+        driver.findElement(By.xpath("//button[text()='Accept Cookies']")).click();
+        // to accep cookie
+        BrowserUtils.wait(4);
 
         //WebElement cookies = driver.findElement(By.id("alert-box-message"));
         //driver.switchTo().alert().accept();
@@ -119,7 +127,8 @@ public class ActionsTests {
     }
 }
 
-// bad thing is in my curren project
-// We have couple teams and i had to switch another team i had to create test cases on something that i dont know at all
+// bad thing is in my current project
+// We have couple teams and i had to switch another team
+// i had to create test cases on something that i dont know at all
 // manual testing is not cool
 // stackoverflow is my best frined

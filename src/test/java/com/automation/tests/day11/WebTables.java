@@ -31,6 +31,7 @@ public class WebTables {
         driver.manage().window().maximize();
     }
 
+    // task get all column names
     @Test
     public void getColumnNames(){
         driver.findElement(By.linkText("Sortable Data Tables")).click();
@@ -122,6 +123,7 @@ public class WebTables {
         BrowserUtils.wait(2);
 
         String columnName = "Email" ;
+
         List<WebElement> columnNames = driver.findElements(By.xpath("//table[2]//th"));
 
         int index = 0 ;

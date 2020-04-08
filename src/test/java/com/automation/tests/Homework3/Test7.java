@@ -29,6 +29,7 @@ public class Test7 {
         driver.findElement(By.linkText("File Upload")).click();
         BrowserUtils.wait(3);
 
+
         WebElement file = driver.findElement(By.id("file-upload"));
 
         String path = "/Users/sezgin/Desktop/Screen Shot 2020-01-25 at 5.13.04 PM.png";

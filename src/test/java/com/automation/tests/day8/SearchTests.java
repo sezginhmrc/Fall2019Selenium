@@ -20,10 +20,12 @@ public class SearchTests {
 
     @Test
     // in test we will focus on testing part
+    // verify that java search contains java
     public void googleSearchTest(){
         driver.get("http://google.com");
+        BrowserUtils.wait(5);
         driver.findElement(By.name("q")).sendKeys("java", Keys.ENTER);
-        BrowserUtils.wait(2);
+        BrowserUtils.wait(5);
 
 
         List<WebElement> listOfLinks = driver.findElements(By.tagName("h3"));
@@ -41,7 +43,13 @@ public class SearchTests {
 
 
 
-
+    /**
+     * Given user is on the amazon.com page
+     * When user enters "java" as a search item
+     * Then user clicks on the search button
+     * And user clicks on the first search item
+     * And user verifies that title of the search item contains "Java"
+     */
     @Test (description = "search text Java Book on amazon")
     public  void amazonSearchTest(){
         driver.get("https://www.amazon.com/");
@@ -51,22 +59,22 @@ public class SearchTests {
         driver.findElement(By.id("twotabsearchtextbox")).sendKeys("Java", Keys.ENTER);
         BrowserUtils.wait(2);
 
-        //find
-        List <WebElement> searchIteams = driver.findElements(By.tagName("h2"));
-        // h2 is cooman  tagname for all search item
+        //find links
+        List <WebElement> searchIteams = driver.findElements(By.xpath("//h2//a"));
+
+        // to print all tittles
+        for(WebElement searchTitles : searchIteams){
+            System.out.println(searchTitles.getText());
+        }
 
         // click on the firs item
         searchIteams.get(0).click();
-        BrowserUtils.wait(2);
 
-        WebElement producTitle = driver.findElement(By.id("title"));
+        String titleoflink = driver.findElement(By.id("title")).getText();
 
-        String productTitleString = producTitle.getText();
+        System.out.println(titleoflink);
 
-        System.out.println(productTitleString);
-
-        Assert.assertTrue(productTitleString.contains("Java"));
-
+        Assert.assertTrue(titleoflink.toLowerCase().contains("java"));
 
     }
 
@@ -91,7 +99,7 @@ public class SearchTests {
 // aftermethod is quit the driver
 // they all related each other
 
-/// Assortion what makes test a test ..
+/// Assertion what makes test a test ..
 
 // this how we create testNg in real work
 // Google Test

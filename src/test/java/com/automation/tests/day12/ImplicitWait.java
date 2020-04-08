@@ -19,6 +19,8 @@ public class ImplicitWait {
         driver.get("http://practice.cybertekschool.com/dynamic_loading/2");
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         // mostly 2 or 3 second maximum
+        // as soon as selenium find the element it will move forward
+        // otherwise it will 10 second
     }
     @Test
     public void waitTest(){
@@ -26,8 +28,6 @@ public class ImplicitWait {
     driver.findElement(By.tagName("button")).click();
         WebElement finishElement = driver.findElement(By.id("finish"));
         System.out.println(finishElement.getText());
-
-
 
     }
 
