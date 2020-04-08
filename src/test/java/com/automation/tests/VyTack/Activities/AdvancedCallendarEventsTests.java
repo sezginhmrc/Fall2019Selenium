@@ -70,12 +70,15 @@ public class AdvancedCallendarEventsTests extends AbstractTestBase {
         loginPage.login();
         calenderEventsPage.navigateTo("Activities", "Calendar Events");
         calenderEventsPage.clickToCreateCalendarEvent();
-        String startTime = calenderEventsPage.getStartTime();
-        String endTime = calenderEventsPage.getEndTime();
-        System.out.println(endTime);
+
+        String startTime = calenderEventsPage.getStartTime(); // get start time
+        String endTime = calenderEventsPage.getEndTime();     // get end time
+
         String format = "h:mm a";
         long actualDifferent = DateTimeUtilities.getTimeDifference(startTime, endTime, format);
         Assert.assertEquals(actualDifferent, 1, "Time difference is not correct");
+
+        test.pass("Time difference verified");
     }
 
     @Test
@@ -105,16 +108,18 @@ public class AdvancedCallendarEventsTests extends AbstractTestBase {
         // this is extent report feature not TESTNG !!!
         LoginPage loginPage = new LoginPage();
         CalenderEventsPage calenderEventsPage = new CalenderEventsPage();
-        test = report.createTest("Create calendar event" +title);
+
+        test = report.createTest("Create calendar event" +title); // for report title
         loginPage.login();
         calenderEventsPage.navigateTo("Activities", "Calendar Events");
         calenderEventsPage.clickToCreateCalendarEvent();
+
         calenderEventsPage.enterTitle(title);
         calenderEventsPage.enterADescription(description);
         calenderEventsPage.clickOnSaveAndClose();
 
-        Assert.assertEquals(calenderEventsPage.getGeneralInfoTitleText(), title);
         Assert.assertEquals(calenderEventsPage.getGeneralInfoDescriptionText(), description);
+        Assert.assertEquals(calenderEventsPage.getGeneralInfoTitleText(), title);
 
 
         test.pass("Calender event was created succesfully!");
@@ -127,7 +132,7 @@ public class AdvancedCallendarEventsTests extends AbstractTestBase {
         return new Object[][]{
                 {"Daily stand-up", "Scrum meeting to provide updates"},
                 {"Sprint planning", "Scrumm meeting where team discussing o userstories "},
-                {"Sprin Review", "meeting where team discuss prevois sprint"},
+                {"Sprint Review", "meeting where team discuss prevois sprint"},
                 // this data is here hard coded, it can be read by excel file
         };
     }

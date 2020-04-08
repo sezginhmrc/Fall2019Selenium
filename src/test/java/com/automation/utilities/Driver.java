@@ -38,7 +38,7 @@ public class Driver {
                     chromeOptions.addArguments("--start-maximized");
                     driver = new ChromeDriver(chromeOptions);
                     break ;
-                case "chromeHeadless":
+                case "chromeheadless":
                     // to run Chrome without interface (headless mode)
                     // headles is faster than regular browser
                     // it does not spend time to dowloand html code (interface)

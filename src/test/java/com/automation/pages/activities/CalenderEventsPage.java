@@ -52,8 +52,8 @@ public class CalenderEventsPage extends AbstractPageBase {
     @FindBy(css = "[class='btn-group pull-right'] > button")
     private WebElement saveAndClose;
 
-    @FindBy(css = "[class='control-label html-property'] > p")
-    private WebElement description ;
+ //   @FindBy(css = "[class='control-label html-property'] > p")
+  //  private WebElement description ;
 
     @FindBy(xpath = "(//div[@class='control-label'])[1]")
     private WebElement generalInfoTitle;
@@ -67,6 +67,7 @@ public class CalenderEventsPage extends AbstractPageBase {
     public void enterTitle(String titleValue){
         BrowserUtils.waitForPageToLoad(20);
         wait.until(ExpectedConditions.visibilityOf(title)).sendKeys(titleValue);
+        BrowserUtils.wait(3);
 
     }
     public void enterADescription (String description){
@@ -78,11 +79,11 @@ public class CalenderEventsPage extends AbstractPageBase {
     }
 
     public  void clickOnSaveAndClose(){
-        BrowserUtils.waitForPageToLoad(15);
-       // wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("(//button[@type='submit'])[1]")));
+        BrowserUtils.wait(5);
+       // wait.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("[class='btn-group pull-right'] > button")));
         wait.until(ExpectedConditions.elementToBeClickable(saveAndClose)).click();
-       // BrowserUtils.waitForPageToLoad(12);
-        BrowserUtils.wait(4);
+        BrowserUtils.wait(5);
+
     }
 
     public String getGeneralInfoTitleText(){
@@ -104,6 +105,7 @@ public class CalenderEventsPage extends AbstractPageBase {
         wait.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("[title='Create Calendar event']")));
         wait.until(ExpectedConditions.elementToBeClickable(createCalendarEvent)).click();
         BrowserUtils.waitForPageToLoad(20);
+        BrowserUtils.wait(5);
     }
 
     public String getOwnerName(){

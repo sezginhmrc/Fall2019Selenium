@@ -94,17 +94,17 @@ public class AdvancedLoginTests extends AbstractTestBase {
 
 
 
-    @DataProvider
+ /*   @DataProvider
     public Object [][] credentialsFromExcel(){
         String path = "VytrackTestUsers.xlsx";
         String spreadhSheet = "QA3-short" ;
         ExcelUtil excelUtil = new ExcelUtil(path,spreadhSheet);
         return excelUtil.getDataArray();
 
-    }
+    }*/
 
 
-    @Test(dataProvider = "credentialsFromExcel")
+    /*@Test(dataProvider = "credentialsFromExcel")
 
     public void loginTestsWithExcel (String execute, String username, String password, String firstname, String lastname,String result){
         test = report.createTest("Login for " + username);
@@ -112,13 +112,14 @@ public class AdvancedLoginTests extends AbstractTestBase {
             LoginPage loginPage  = new LoginPage();
             loginPage.login(username,password);
             test.info("Login as " +username); // log some steps
+            test.info(String.format("First name: %s, Last name: %s, Username: %s", firstname, lastname, username));
             test.pass("Successfully logged in as " +username);
-            test.info(String.format("First name: %s, Last name: %s, Username: %s",firstname,lastname,username));
+
             // % is more readable
            } else {
-            test.skip("Test was skipped for user " +username);
-            throw new SkipException("Datas skipped");
+            test.skip("Test was skipped for user: " + username);
+            throw new SkipException("Tes was skipped for user: " +username);
             //skip exception you can throw when you want to skip some tests in testNG.
-                    }
-    }
+                    }*/
+  //  }
 }

@@ -36,7 +36,7 @@ public class AbstractTestBase {
 
 
     //@optional is to make parameter if you dont specify testng will require to specfiy this parameter for every test, in xml runner
-    @BeforeSuite
+    @BeforeTest
     @Parameters("reportName")
     public void setupTest(@Optional String reportName){
         // This will be used to create report for once for all tests
@@ -44,7 +44,7 @@ public class AbstractTestBase {
         // We use ExtendReports, ExtendHtmlReporter , ExtentTest object to interact report.html
         // it is here in @BeforeTest it means it will run once for all tests
         System.out.println("Report Name " +reportName);
-         reportName = reportName == null ? "report.html" : reportName+".html" ;
+         reportName = reportName == null ? "report.html" : reportName +".html" ;
          // if the paraemeter is null report.html
         // if parameter is providede and updated in reoprt
         // we can crete different report for differernt purposes
@@ -67,7 +67,7 @@ public class AbstractTestBase {
 
     }
 
-    @AfterSuite
+    @AfterTest
     public void aftertest(){
         report.flush();
         // to release a report
@@ -79,7 +79,7 @@ public class AbstractTestBase {
         // Whenever test clases inherit this base class They will get below codes
         // it provides essential setup and cleanup for every test of our project
         // We initialize Driver, WebDriverWait, Actions, Open the Browser
-        String URL = ConfigurationReader.getProperty("qa1");
+        String URL = ConfigurationReader.getProperty("qa3");
         // all test cases will be open on "CHROME"
         Driver.getDriver().get(URL);
         Driver.getDriver().manage().window().maximize();
