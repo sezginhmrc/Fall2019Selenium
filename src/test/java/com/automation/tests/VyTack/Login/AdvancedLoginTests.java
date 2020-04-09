@@ -16,7 +16,7 @@ public class AdvancedLoginTests extends AbstractTestBase {
 
     // inherited neccesary setup and teardown from TestBase
 
-    @Test
+    @Test(groups = "smoke")
     public void verifyPageTitle(){
         // we must add to every test at the beginning
         // it will show in reports in first line
