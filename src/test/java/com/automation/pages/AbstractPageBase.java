@@ -21,7 +21,7 @@ public abstract class AbstractPageBase {
     // elements from that menu
 
     protected WebDriver driver = Driver.getDriver();
-    // more reuse code
+    // more reusable code
     // every page will get driver like below
     protected WebDriverWait wait = new WebDriverWait(driver,15);
     // every page class implement this wait

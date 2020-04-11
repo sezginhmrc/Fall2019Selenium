@@ -2,6 +2,7 @@
 <suite name="Test suite">
 
     <test name="Login">
+        <!-- BeforeTest-->
         <parameter name="reportName" value="login"/>
         <classes>
 

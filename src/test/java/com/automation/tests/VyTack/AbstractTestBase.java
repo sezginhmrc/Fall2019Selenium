@@ -39,7 +39,7 @@ public class AbstractTestBase {
     @BeforeTest
     @Parameters("reportName")
     public void setupTest(@Optional String reportName){
-        // This will be used to create report for once for all tests
+        // This will be used to create report for once for all tests in same class
         // Only One Html File
         // We use ExtendReports, ExtendHtmlReporter , ExtentTest object to interact report.html
         // it is here in @BeforeTest it means it will run once for all tests
@@ -61,10 +61,10 @@ public class AbstractTestBase {
     }
     // is a HTML report itself
         htmlReporter = new ExtentHtmlReporter(reportPath);
-    // add it to the reporter
+    // add it to the reporter for html report
         report.attachReporter(htmlReporter);
         htmlReporter.config().setReportName("VYTRACK Test Automation Results");
-
+        // naming the reoprt
     }
 
     @AfterTest
@@ -91,7 +91,7 @@ public class AbstractTestBase {
     }
     @AfterMethod
     // check test result if it fails takescreen shot and
-    // and attach the test name, screenshot, attach error console output into to  REPORT..
+    // and attach the test name, screenshot, attach error console output in  REPORT..
     public void teardown(ITestResult iTestResult) throws IOException {
         // itResult is interface that describes the result of a test
         // if the test fails screnshot will be taken right away
@@ -101,13 +101,11 @@ public class AbstractTestBase {
           String screenShotPath =  BrowserUtils.getScreenshot(iTestResult.getName());
                                                               // this returns name of test
 
-            test.fail(iTestResult.getName());
-            // name of test will be shown in report Html in first line
-            BrowserUtils.wait(3);
-            test.addScreenCaptureFromPath(screenShotPath);
-            // Screenshot only will be shown in report Html if test fails
-            test.fail(iTestResult.getThrowable());
-            // output will be shown in report HTML
+            test.fail(iTestResult.getName());  // name of test will be shown in report Html in first line
+            BrowserUtils.wait(4);
+            test.addScreenCaptureFromPath(screenShotPath); // Screenshot only will be shown in report Html if test fails
+            BrowserUtils.wait(4);
+            test.fail(iTestResult.getThrowable());  // output will be shown in report HTML
 
 
             //ScreenSHots only will be taken if test fails

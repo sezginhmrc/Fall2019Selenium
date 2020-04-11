@@ -16,7 +16,7 @@ public class AdvancedLoginTests extends AbstractTestBase {
 
     // inherited neccesary setup and teardown from TestBase
 
-    @Test(groups = "smoke")
+    @Test
     public void verifyPageTitle(){
         // we must add to every test at the beginning
         // it will show in reports in first line
@@ -54,11 +54,11 @@ public class AdvancedLoginTests extends AbstractTestBase {
 
         LoginPage login = new LoginPage();
         login.login("wrong","wrong");
-        Assert.assertEquals(login.getWarningMessageText(),"Invalid user name or password.");
 
         test.info("Login with wrong credentials");
+        Assert.assertEquals(login.getWarningMessageText(),"Invalid user name or password.");
 
-        //BrowserUtils.getScreenshot("warning_message");
+   //     BrowserUtils.getScreenshot("warning_message");
         // This screenshot will be taken no matter it pass or fails
 
         test.pass("Warning message was displayed");
@@ -72,7 +72,7 @@ public class AdvancedLoginTests extends AbstractTestBase {
 
         LoginPage loginPage = new LoginPage();
         loginPage.login(userName,password);
-        test.info("Login as" + userName);
+        test.info("Login as a " + userName);
 
         Assert.assertEquals(Driver.getDriver().getTitle(),"Dashboard");
         test.pass("Page title was verified");

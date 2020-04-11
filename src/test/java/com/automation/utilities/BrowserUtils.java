@@ -89,19 +89,20 @@ public class BrowserUtils {
     public static String getScreenshot(String name) {
         //adding date and time to screenshot name, to make screenshot unique
         name = new Date().toString().replace(" ", "_") + "_" + name;
+        //                                      Fri_Apr_10_17:35:39_EDT_2020_name. png
         //where we gonna store a screenshot
         // it will open test-output folder and will save screshoots inside screenshot file
         String path = "";
         if (System.getProperty("os.name").toLowerCase().contains("mac")) {
             path = System.getProperty("user.dir") + "/test-output/screenshots/" + name + ".png";
             System.out.println("Screen shots here = " +path);
-            // user dir returns  location of your project
+            // user dir returns  location of your project (/Users/sezgin/fall2019Selenium...//)
             // png is exxtension for images
             // path is where we store screenshots
         } else {
             path = System.getProperty("user.dir") + "\\test-output\\screenshots\\" + name + ".png";
         }
-      //  System.out.println("OS name: " + System.getProperty("os.name"));
+       //  System.out.println("OS name: " + System.getProperty("os.name"));
        // System.out.println("Screenshot is here: " + path);
         //since our reference type is a WebDriver
         //we cannot see methods from TakesScreenshot interface
@@ -114,11 +115,14 @@ public class BrowserUtils {
         try {
             //copy file to the previously specified location (path)
             FileUtils.copyFile(source, destination);
+            // source is screenshot
+            // destination is where screenshot will be stored
         } catch (IOException e) {
             e.printStackTrace();
         }
         return path;
     }
+
     // We created path Where We gonna store screenshots
     // and We use the getscreenshot method
     // and defined the screenshot into a file  as a format png (outputType.File)

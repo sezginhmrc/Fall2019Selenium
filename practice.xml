@@ -1,0 +1,11 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+<suite name="BasicLogin Suite">
+    <test name="BasicLogin">
+
+
+            <classes>
+                <class name="com.automation.tests.VyTack.Login.AdvancedLoginTests"/>
+            </classes>
+
+    </test>
+</suite>

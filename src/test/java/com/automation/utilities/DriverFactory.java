@@ -27,7 +27,6 @@ public class DriverFactory {
             return new OperaDriver();
         } else {
             return new SafariDriver();
-
         }
         /*browserName = browserName.toLowerCase();
         switch (browserName){

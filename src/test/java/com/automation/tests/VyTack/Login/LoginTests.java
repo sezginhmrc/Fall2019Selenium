@@ -15,6 +15,8 @@ import org.testng.annotations.Test;
 import static org.testng.Assert.*;
 //static import for all assertions
 
+//<parameter name="reportName" value="BasicLogin">
+//</parameter>
 
 public class LoginTests {
     // Idea is to group test cases based on Pages for VyTrack Application
