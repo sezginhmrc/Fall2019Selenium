@@ -20,6 +20,7 @@ public class ExcelUtil {
     private Workbook workBook;
     private String path;
 
+    // constructor to open desired excel sheet
     public ExcelUtil(String path, String sheetName) {
         this.path = path;
         try {
@@ -36,6 +37,7 @@ public class ExcelUtil {
         }
     }
 
+    // to data driven testing we can easily get data calling the method
     public String getCellData(int rowNum, int colNum) {
         Cell cell;
         try {
@@ -63,7 +65,7 @@ public class ExcelUtil {
 
 
 
-    // this method getting data as a List <Map<<String , String>> , where key name represent columnd name
+    // this method getting data as a List <Map<<String , String>> , where key name represent column name
 
     public List<Map<String, String>> getDataList() {
         // get all columns
@@ -98,6 +100,7 @@ public class ExcelUtil {
     }
 
     // write something into excel file
+    // sezgin, 0 , 1
     public void setCellData(String value, int rowNum, int colNum) {
         Cell cell;
         Row row;

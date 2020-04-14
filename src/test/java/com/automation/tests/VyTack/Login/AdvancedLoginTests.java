@@ -92,34 +92,32 @@ public class AdvancedLoginTests extends AbstractTestBase {
     }
 
 
-
-
- /*   @DataProvider
+   @DataProvider
     public Object [][] credentialsFromExcel(){
         String path = "VytrackTestUsers.xlsx";
         String spreadhSheet = "QA3-short" ;
         ExcelUtil excelUtil = new ExcelUtil(path,spreadhSheet);
         return excelUtil.getDataArray();
 
-    }*/
+    }
 
 
-    /*@Test(dataProvider = "credentialsFromExcel")
-
-    public void loginTestsWithExcel (String execute, String username, String password, String firstname, String lastname,String result){
-        test = report.createTest("Login for " + username);
-        if(execute.equals("y")){
-            LoginPage loginPage  = new LoginPage();
-            loginPage.login(username,password);
-            test.info("Login as " +username); // log some steps
+    @Test(dataProvider = "credentialsFromExcel")
+     // DATA DRIVER TESTING  ! ! ! WUTH EXCEL FIL.
+    public void loginTestsWithExcel (String execute, String username, String password, String firstname, String lastname,String result) {
+        test = report.createTest("Login test for " + username);
+        if (execute.equals("y")) {
+            LoginPage loginPage = new LoginPage();
+            loginPage.login(username, password); // username password given her e
+            test.info("Login as " + username); // log some steps
             test.info(String.format("First name: %s, Last name: %s, Username: %s", firstname, lastname, username));
-            test.pass("Successfully logged in as " +username);
-
+            test.pass("Successfully logged in as " + username);
             // % is more readable
-           } else {
+        } else {
             test.skip("Test was skipped for user: " + username);
-            throw new SkipException("Tes was skipped for user: " +username);
+            throw new SkipException("Tes was skipped for user: " + username);
             //skip exception you can throw when you want to skip some tests in testNG.
-                    }*/
-  //  }
+            // skipException not means it is failling
+        }
+    }
 }
